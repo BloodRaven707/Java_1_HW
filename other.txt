@@ -1,0 +1,120 @@
+1. Вычислить n-ое треугольного число(сумма чисел от 1 до n), n!
+(произведение чисел от 1 до n)
+2. Вывести все простые числа от 1 до 1000
+3. Реализовать простой калькулятор
+4. *+Задано уравнение вида q + w = e, q, w, e >= 0. Некоторые цифры
+могут быть заменены знаком вопроса, например 2? + ?5 = 69. Требуется
+восстановить выражение до верного равенства. Предложить хотя бы
+одно решение или сообщить, что его нет.
+
+
+int result = 0;
+
+int q1 = 0;
+int q2 = 0;
+boolean q1r = false;
+boolean q2r = false;
+
+int w1 = 0;
+int w2 = 0;
+boolean w1r = false;
+boolean w2r = false;
+
+int z1 = 0;
+int z2 = 0;
+boolean z1r = false;
+boolean z2r = false;
+
+int i = 0;
+if ( isInt( q ) ) {
+    int iq = Integer.parseInt( q );
+    q1 = iq / 10;
+    q2 = iq % 10;
+} else {
+    if ( isInt( "" + expression.charAt( i ) ) ) {
+        q1 = Integer.parseInt( "" + expression.charAt( i ) );
+    } else {
+        q1 = 1;
+        q1r = true;
+    }
+    if ( isInt( "" + expression.charAt( i + 1 ) ) ) {
+        q2 = Integer.parseInt( "" + expression.charAt( i + 1 ) );
+    } else {
+        q2 = 1;
+        q2r = true;
+    }
+}
+
+i = 5;
+if ( isInt( w ) ) {
+    int iw = Integer.parseInt( w );
+    w1 = iw / 10;
+    w2 = iw % 10;
+} else {
+    if ( isInt( "" + expression.charAt( i ) ) ) {
+        w1 = Integer.parseInt( "" + expression.charAt( i ) );
+    } else {
+        w1 = 1;
+        w1r = true;
+    }
+    if ( isInt( "" + expression.charAt( i + 1 ) ) ) {
+        w2 = Integer.parseInt( "" + expression.charAt( i + 1 ) );
+    } else {
+        w2 = 1;
+        w2r = true;
+    }
+}
+
+i = 10;
+if ( isInt( z ) ) {
+    int iz = Integer.parseInt( z );
+    z1 = iz / 10;
+    z2 = iz % 10;
+} else {
+    if ( isInt( "" + expression.charAt( i ) ) ) {
+        z1 = Integer.parseInt( "" + expression.charAt( i ) );
+    } else {
+        z1 = 1;
+        z1r = true;
+    }
+    if ( isInt( "" + expression.charAt( i + 1 ) ) ) {
+        z2 = Integer.parseInt( "" + expression.charAt( i + 1 ) );
+    } else {
+        z2 = 1;
+        z2r = true;
+    }
+}
+
+// if (q1r) { result += (q1 * 10); }
+// if (q2r) { result += q2; }
+// if (w1r) { result += (w1 * 10); }
+// if (w2r) { result += w2; }
+// if (z1r) { result -= (z1 * 10); }
+// if (z2r) { result -= z2; }
+
+    //
+    public static boolean isCorrect( String q, String w, String z, String expression ) {
+        // Берем максимальные для operator == "+"
+        int int_q = Integer.parseInt( q.replace( "?", Integer.toString( 9 ) ) );
+        int int_w = Integer.parseInt( w.replace( "?", Integer.toString( 9 ) ) );
+
+        // Берем минимальное для operator == "+"
+        int int_z = Integer.parseInt( z.replace( "?", Integer.toString( 1 ) ) );
+
+        if ( int_q + int_w >= int_z ) {
+            print( "\nВыражение: " + expression + " верно!\n\n" );
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public static boolean isInt( String str ) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
