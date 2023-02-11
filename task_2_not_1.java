@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class task_2 {
+public class task_2_not_1 {
 
     public static void main( String[] args ) {
         print( "\nПрограмма выводит все простые числа от 1 до N\n" );
@@ -12,9 +12,7 @@ public class task_2 {
 
         List<Integer> prime_numbers = new ArrayList<>();
 
-        if ( number > 0 ) {
-            prime_numbers.add( 1 );
-        } else {
+        if ( number < 1 ) {
             print( "\nВы ввели число меньше 1 \n\n" );
             return;
         }
