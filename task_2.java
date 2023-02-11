@@ -19,23 +19,22 @@ public class task_2 {
             return;
         }
 
-
         for ( int i = 2; i <= number; i++ ) {
             boolean isPrimeNumber = true;
 
-            for ( int j = 0; j < prime_numbers.size(); j++ ) {
+            for ( int j = 1; j < prime_numbers.size(); j++ ) {
                 if ( i % prime_numbers.get( j ) == 0 ) {
                     isPrimeNumber = false;
                     break;
                 }
             }
-
+            print( "" + isPrimeNumber );
             if ( isPrimeNumber ) {
                 prime_numbers.add( i );
             }
         }
 
-        System.out.println( "\nСписок простых чисел: " + prime_numbers + "\n\n" );
+        print( "\nСписок простых чисел: " + prime_numbers + "\n\n" );
     }
 
 
